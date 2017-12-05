@@ -9,8 +9,10 @@ function getClient(host) {
 
 function SayHelloA(call, callback) {
     console.log('gateway transmit a call from ' + call.request.name + ' to localhost:50051');
-    var client = getClient('localhost:50051');
-    client.SayHelloA(call.request, callback);
+    setTimeout(() => {
+        var client = getClient('localhost:50051');
+        client.SayHelloA(call.request, callback);
+    }, 3000)
 }
 
 function SayHelloB(call, callback) {
